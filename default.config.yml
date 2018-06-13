@@ -73,6 +73,7 @@ homebrew_installed_packages:
   - stormssh
   - task
   - terraform
+  - terragrunt
   - thefuck
   - tmux
   - trash
