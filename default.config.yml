@@ -13,6 +13,7 @@ dotfiles_files:
   - .aliases
   - .ansible.cfg
   - .bash_profile
+  - .dash
   - .gitignore
   - .inputrc
   - .macos
