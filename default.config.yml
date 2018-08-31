@@ -59,6 +59,7 @@ homebrew_installed_packages:
   - nvm
   - openshift-cli
   - openssl
+  - pipenv
   - pv
   - pwgen
   - python3
@@ -124,7 +125,7 @@ homebrew_cask_apps:
   - sublime-text
   - the-unarchiver
   - vagrant
-  # - virtualbox
+  - virtualbox
   - visual-studio-code
   - vivaldi
   - vlc
