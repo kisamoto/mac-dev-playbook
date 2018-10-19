@@ -111,6 +111,7 @@ homebrew_cask_apps:
   - intellij-idea
   - goland
   - iterm2
+  - keepingyouawake
   - mactex
   - macvim
   - mattermost
