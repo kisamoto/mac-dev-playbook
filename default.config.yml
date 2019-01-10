@@ -107,7 +107,6 @@ homebrew_cask_apps:
   - firefox
   - flux
   - google-chrome
-  - handbrake
   - intellij-idea
   - goland
   - iterm2
@@ -128,7 +127,6 @@ homebrew_cask_apps:
   - vagrant
   - virtualbox
   - visual-studio-code
-  - vivaldi
   - vlc
   - webstorm
 
