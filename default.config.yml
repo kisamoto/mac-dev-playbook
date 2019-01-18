@@ -101,6 +101,7 @@ homebrew_cask_apps:
   - appcode
   # - android-sdk
   - caffeine
+  - darktable
   - dash
   - datagrip
   - docker
@@ -110,6 +111,7 @@ homebrew_cask_apps:
   - intellij-idea
   - goland
   - iterm2
+  - keepassxc
   - keepingyouawake
   - mactex
   - macvim
