@@ -51,6 +51,7 @@ homebrew_installed_packages:
   - iperf
   - jq
   - kotlin
+  - kubectx # easily switch between k8s clusters and namespaces
   - lego
   - libevent
   - mosh
