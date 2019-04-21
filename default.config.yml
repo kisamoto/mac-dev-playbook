@@ -49,8 +49,10 @@ homebrew_installed_packages:
   - hugo
   - imagemagick
   - iperf
+  - jsonnet # JSON templating
   - jq
   - kotlin
+  - kubecfg # app from Bitnami for working with jsonnet on k8s
   - kubectx # easily switch between k8s clusters and namespaces
   - lego
   - libevent
