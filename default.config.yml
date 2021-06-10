@@ -29,7 +29,6 @@ dotfiles_files:
   - .taskrc
   - .tmux.conf
   - .zshrc
-  - .zshrc.pre-oh-my-zsh
 
 homebrew_installed_packages:
   - autoconf
@@ -89,7 +88,7 @@ homebrew_installed_packages:
   - ripgrep # fast search, replace `pt`
   - ruby # overrite the default installation
   - rust
-  - source-to-image
+  # - source-to-image
   - speedtest-cli
   - sqlite
   - ssh-copy-id
