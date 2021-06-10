@@ -1,19 +1,13 @@
 ---
-downloads: ~/.ansible-downloads/
-
-configure_dotfiles: true
-configure_terminal: true
-configure_osx: true
-
-configure_sudoers: false
-sudoers_custom_config: ""
-# Example:
-# sudoers_custom_config: |
-#   # Allow users in admin group to use sudo with no password.
-#   %admin ALL=(ALL) NOPASSWD: ALL
+# Set to 'true' to configure the Dock via dockutil.
+configure_dock: true
+dockitems_remove:
+  - Launchpad
+  - TV
+  - Podcasts
+  - "App Store"
 
 dotfiles_repo: https://github.com/kisamoto/dotfiles.git
-dotfiles_repo_accept_hostkey: yes
 dotfiles_repo_local_destination: ~/Development/github.com/kisamoto/dotfiles
 dotfiles_files:
   - .aliases
@@ -53,7 +47,6 @@ homebrew_installed_packages:
   - htop
   - doxygen
   - gettext
-  - gifsicle
   - git
   - github/gh/gh
   - gif-lfs
@@ -62,8 +55,7 @@ homebrew_installed_packages:
   - httpie
   - hugo
   - imagemagick
-  - iperf
-  - jsonnet # JSON templating
+  # - jsonnet # JSON templating
   - jq
   - kotlin
   # - kubecfg # app from Bitnami for working with jsonnet on k8s
@@ -72,7 +64,6 @@ homebrew_installed_packages:
   - mosh
   - nmap
   - node
-  - nvm
   # - openshift-cli
   # - php
   - ssh-copy-id
@@ -80,7 +71,6 @@ homebrew_installed_packages:
   - readline
   - openssl
   - pipenv
-  - pv
   - pwgen
   - python3
   - readline
@@ -97,7 +87,6 @@ homebrew_installed_packages:
   - task
   - terraform
   - terragrunt
-  - thefuck
   - tmux
   - trash
   - tree
@@ -109,40 +98,27 @@ homebrew_installed_packages:
   - z
   - zsh
 
-homebrew_taps:
-  - homebrew/core
-  - homebrew/cask
-
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
   - java # at the top for android dependency
-  - appcode
-  # - android-sdk
-  - dash
-  - datagrip
-  - discord
   - chromedriver
-  # - dropbox
+  - dash
+  - discord
   - firefox
   - flux
   - google-chrome
-  - intellij-idea
-  - goland
+  - handbrake
   - iina
   - iterm2
   - keepassxc
   - keepingyouawake
+  - licecap
   - mactex
   - macvim
   - mattermost
-  - nvalt
   - onedrive
   - pycharm
-  - skitch
   - skype
-  - handbrake
-  - licecap
-  - sequel-pro
   - slack
   - spotify
   - sublime-text
@@ -151,27 +127,25 @@ homebrew_cask_apps:
   - virtualbox
   - visual-studio-code
   - vlc
-  - webstorm
+  # - android-sdk
+  # - dropbox
 
 # See `geerlingguy.mas` role documentation for usage instructions.
 mas_installed_apps:
-  - { id: 824183456, name: "Affinity Photo (1.7.3)" }
-  - { id: 824171161, name: "Affinity Designer (1.7.3)" }
-  - { id: 692867256, name: "Simplenote (1.1.8)" }
-  - { id: 497799835, name: "Xcode (9.1)" }
-  - { id: 734418810, name: "SSH Tunnel (16.07)" }
-  - { id: 409183694, name: "Keynote (7.3.1)" }
-  - { id: 823766827, name: "OneDrive (17.3.7078)" }
+  - { id: 1171820258, name: "Highland 2 (2.9.9)" }
+  - { id: 1255311569, name: "Time Zone Converter and Clock (1.7.5)" }
+  - { id: 1274495053, name: "Microsoft To Do (2.45)" }
+  - { id: 1295203466, name: "Microsoft Remote Desktop (10.6.6)" }
+  - { id: 1352778147, name: "Bitwarden (1.26.5)" }
+  - { id: 1451685025, name: "WireGuard (1.0.12)" }
+  - { id: 408981434, name: "iMovie (10.2.3)" }
   - { id: 452695239, name: "QREncoder (1.5)" }
+  - { id: 682658836, name: "GarageBand (10.4.3)" }
+  - { id: 734418810, name: "SSH Tunnel (18.11.1)" }
+  - { id: 824171161, name: "Affinity Designer (1.9.3)" }
+  - { id: 824183456, name: "Affinity Photo (1.9.3)" }
   - { id: 912423770, name: "Command & Conquer Generals Deluxe Edition (1.1.2)" }
-  - { id: 682658836, name: "GarageBand (10.3.3)" }
-  - { id: 1255311569, name: "Time Zone Converter and Clock (1.6.0)" }
-  - { id: 408981434, name: "iMovie (10.1.13)" }
-
-mas_email: ""
-mas_password: ""
-
-osx_script: "~/.osx --no-restart"
+  - { id: 931134707, name: "Wire (3.25.4095)" }
 
 # Create some useful directory structures
 required_directories:
