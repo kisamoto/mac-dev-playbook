@@ -6,6 +6,14 @@ dockitems_remove:
   - TV
   - Podcasts
   - "App Store"
+  - Messages
+  - Maps
+  - Photos
+  - FaceTime
+  - Contacts
+  - Music
+  - System Preferences
+  - Downloads
 
 dotfiles_repo: https://github.com/kisamoto/dotfiles.git
 dotfiles_repo_local_destination: ~/Development/github.com/kisamoto/dotfiles
@@ -24,51 +32,44 @@ dotfiles_files:
   - .tmux.conf
   - .zshrc
 
+homebrew_uninstalled_packages:
+  - yarn
+  - node # Use nvm instead so can control the versions of Node installed
+
 homebrew_installed_packages:
+  - java
   - autoconf
   - awscli
-  # - azure-cli
   - bash-completion
   - cookiecutter
   - cowsay
   - diff-so-fancy
   - dos2unix
+  - doxygen
   - emacs
   - exiftool
   - fd # alternative to find: https://github.com/sharkdp/fd
   - ffmpeg
   - fortune
   - gcc
+  - gettext
   - git
+  - git-lfs
+  - github/gh/gh
   - glide
   - go
   - gpg
-  - hammerspoon # Needed for the shiftit spoon https://github.com/peterklijn/hammerspoon-shiftit
   - htop
-  - doxygen
-  - gettext
-  - git
-  - github/gh/gh
-  - gif-lfs
-  - go
-  - gpg
   - httpie
   - hugo
   - imagemagick
-  # - jsonnet # JSON templating
   - jq
   - kotlin
-  # - kubecfg # app from Bitnami for working with jsonnet on k8s
   - kubectx # easily switch between k8s clusters and namespaces
   - libevent
   - mosh
   - nmap
-  - node
-  # - openshift-cli
-  # - php
-  - ssh-copy-id
-  - cowsay
-  - readline
+  - nvm
   - openssl
   - pipenv
   - pwgen
@@ -78,7 +79,6 @@ homebrew_installed_packages:
   - ripgrep # fast search, replace `pt`
   - ruby # overrite the default installation
   - rust
-  # - source-to-image
   - speedtest-cli
   - sqlite
   - ssh-copy-id
@@ -90,17 +90,22 @@ homebrew_installed_packages:
   - tmux
   - trash
   - tree
+  - vips
   - watch
   - wget
-  - wrk
-  - yarn
+  - you-get
   - youtube-dl
   - z
   - zsh
+  #- hammerspoon # Needed for the shiftit spoon https://github.com/peterklijn/hammerspoon-shiftit
+
+homebrew_cask_uninstalled_apps:
+  - mattermost
+  - pycharm
 
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
-  - java # at the top for android dependency
+  - brave-browser
   - chromedriver
   - dash
   - discord
@@ -115,20 +120,21 @@ homebrew_cask_apps:
   - licecap
   - mactex
   - macvim
-  - mattermost
-  - onedrive
-  - pycharm
+  #- onedrive
+  - signal
   - skype
   - slack
   - spotify
   - sublime-text
+  - telegram-desktop
   - the-unarchiver
-  - vagrant
-  - virtualbox
   - visual-studio-code
   - vlc
+  - whatsapp
   # - android-sdk
   # - dropbox
+
+osx_script: "~/.macos --no-restart"
 
 # See `geerlingguy.mas` role documentation for usage instructions.
 mas_installed_apps:
