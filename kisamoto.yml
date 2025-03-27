@@ -1,0 +1,67 @@
+---
+- name: Run base playbook
+  ansible.builtin.import_playbook: main.yml
+
+- name: Custom tasks for setup
+  hosts: all
+  tags:
+    - kisamoto
+
+  vars:
+    dotfiles_repo: "git@github.com:kisamoto/dotfiles.git"
+    selected_dotfiles:
+      - aliases
+      - ansible
+      - curl
+      - dash
+      - editor
+      - git
+      - gnupg
+      - inputrc
+      - macos
+      - osx
+      - tmux
+      - vim
+      - yt-dlp
+      - zsh
+    go_version: "1.24"
+
+  tasks:
+    - name: Create Development directory
+      ansible.builtin.file:
+        path: "{{ ansible_env['HOME'] }}/Development"
+        state: directory
+
+    # - name: Clone dotfiles
+    #   ansible.builtin.git:
+    #     repo: "{{ dotfiles_repo }}"
+    #     dest: "{{ ansible_env['HOME'] }}/Development/github.com/kisamoto/dotfiles"
+    #     recursive: yes
+    #     update: yes
+    #     accept_hostkey: yes
+    #   become: no
+
+    - name: Link dotfiles with stow
+      ansible.builtin.command:
+        cmd: "/opt/homebrew/bin/stow --target {{ ansible_env['HOME'] }} {{ selected_dotfiles | join(' ') }}"
+        chdir: "{{ ansible_env['HOME'] }}/Development/github.com/kisamoto/dotfiles"
+
+    - name: Install GVM
+      ansible.builtin.shell:
+        cmd: "zsh -c 'curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer | zsh'"
+        creates: "{{ ansible_env['HOME'] }}/.gvm"
+
+    - name: Install Go version
+      ansible.builtin.shell:
+        cmd: "source {{ ansible_env['HOME'] }}/.gvm/scripts/gvm && gvm install go{{ go_version }}"
+      environment:
+        PATH: "/opt/homebrew/bin:{{ ansible_env['PATH'] }}"
+
+    - name: Set Go version to default
+      ansible.builtin.shell:
+        cmd: "source {{ ansible_env['HOME'] }}/.gvm/scripts/gvm && gvm use go{{ go_version }} --default"
+
+    - name: Sync development directory
+      ansible.posix.synchronize:
+        src: "~/Development/"
+        dest: "{{ ansible_env['HOME'] }}/Development"
