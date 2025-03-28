@@ -61,7 +61,33 @@
       ansible.builtin.shell:
         cmd: "source {{ ansible_env['HOME'] }}/.gvm/scripts/gvm && gvm use go{{ go_version }} --default"
 
-    - name: Sync development directory
-      ansible.posix.synchronize:
-        src: "~/Development/"
-        dest: "{{ ansible_env['HOME'] }}/Development"
+    - name: Set Hammerspoon directory
+      ansible.builtin.set_fact:
+        hammerspoon_dir: "{{ ansible_env['HOME'] }}/.hammerspoon"
+
+    - name: Install ShiftIt spoon
+      block:
+        - name: Ensure Hammerspoon Spoons directory exists
+          ansible.builtin.file:
+            path: "{{ hammerspoon_dir }}/Spoons"
+            state: directory
+
+        - name: Unzip ShiftIt spoon
+          ansible.builtin.unarchive:
+            remote_src: yes
+            src: "https://github.com/peterklijn/hammerspoon-shiftit/releases/download/v1.1/ShiftIt.spoon.zip"
+            dest: "{{ hammerspoon_dir }}/Spoons"
+
+        - name: Remove ShiftIt spoon zip
+          ansible.builtin.file:
+            path: "{{ hammerspoon_dir }}/Spoons/ShiftIt.spoon.zip"
+            state: absent
+
+        - name: Add ShiftIt spoon to Hammerspoon config
+          ansible.builtin.blockinfile:
+            path: "{{ hammerspoon_dir }}/init.lua"
+            marker: "-- {mark} ANSIBLE MANAGED BLOCK"
+            block: |
+              hs.loadSpoon("ShiftIt")
+              spoon.ShiftIt:bindHotkeys({})
+

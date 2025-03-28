@@ -26,10 +26,20 @@ Could do local install but prefer to run ansible from a different server and con
   - Setup Syncthing and add to the chain with the other nodes
   - Signin to Firefox sync
 - Enable keyboard shortcuts for window management with Hammerspoon (already installed via brew)
-  -
+  - 
 - Setup Mail
   - Fastmail
   - Gmail
+- Add volume to menu bar
+  - System Settings / Control Center / Sound / Always Show in Menu Bar
+- Add GPG key for signing git commits
+  - https://alexnorell.com/post/set-up-gpg/#install-tools
+  - Download private key for BitWarden
+  - Generate a new signing key
+    - `gpg --quick-add-key $PRIMARY ed25519 sign 1y`
+  - Locate the ID
+    - `gpg --list-keys --with-subkey-fingerprints $PRIMARY`
+  - Update the global Git config
 - Setup Calendar
   - TODO
 - Signin to Jetbrains Toolbox
