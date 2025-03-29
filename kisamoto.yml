@@ -91,3 +91,9 @@
               hs.loadSpoon("ShiftIt")
               spoon.ShiftIt:bindHotkeys({})
 
+    - name: Pull tpm for tmux
+      ansible.builtin.git:
+        repo: "https://github.com/tmux-plugins/tpm"
+        dest: "{{ ansible_env['HOME'] }}/.tmux/plugins/tpm"
+        recursive: yes
+        update: yes
