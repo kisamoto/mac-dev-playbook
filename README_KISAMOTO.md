@@ -6,7 +6,7 @@
 ## `uv` commands
 
 ```
-uv install ansible
+uv sync
 
 uv run ansible-galaxy install -r requirements.yml
 
